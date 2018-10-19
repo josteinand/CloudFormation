@@ -5,7 +5,9 @@
             "Effect": "Allow",
             "Action": [
                 "ec2:*",
-                "cloudwatch:*"
+                "cloudwatch:*",
+                "s3:*"
+
             ],
             "Resource": "*"
         }
