@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  Name:
+    Description: Name of Bucket.
+    Type: String
+    Default: bucket-name
+  AccessControl:
+    Description: 'Leave as Private to create Private bucket'
+    Type: String
+    Default: Private 
+    AllowedValues:
+      - Private 
+      - BucketOwnerFullControl
+      - PublicRead
+      - AuthenticatedRead
+    ConstraintDescription: Must be a number between 1 and 15.
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: !Ref AccessControl
+      BucketName: !Ref Name
+Outputs:
+  BucketName:
+    Value: !Ref 'S3Bucket'
+    Description: Name of the sample Amazon S3 bucket
